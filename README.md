@@ -79,8 +79,11 @@ Berikut ini adalah cara setup di local environment dan cara deploy
    ```
 
 2. Add `.env`
-   `REACT_APP_API_URL=https://api.themoviedb.org/`
-   `REACT_APP_API_KEY=2fccde01a371b106b09a241d6d1d5b49`
+
+   ```sh
+    REACT_APP_API_URL=https://api.themoviedb.org/
+    REACT_APP_API_KEY=2fccde01a371b106b09a241d6d1d5b49
+   ```
 
 3. Running Project
    ```sh

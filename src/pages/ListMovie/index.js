@@ -12,6 +12,7 @@ const ListMovie = () => {
   const [page, setPage] = useState(1)
   const [isLoading, setLoading] = useState(false)
   const [noData, setNoData] = useState(false)
+  const [originalTitle, setOriginalTitle] = useState('')
   const navigate = useNavigate()
 
   window.onscroll = () => {
@@ -26,6 +27,28 @@ const ListMovie = () => {
   useEffect(() => {
     loadMovies(page)
   }, [])
+
+  useEffect(() => {
+    const newResults = dataMovies.results.filter((item) =>
+      item.title.toLowerCase().includes(originalTitle),
+    )
+
+    if (!originalTitle) {
+      getAllMovie({ page: 1 }, (res) => {
+        setDataMovies(res)
+        setLoading(false)
+      })
+    } else {
+      setDataMovies({
+        ...dataMovies,
+        results: newResults,
+      })
+    }
+  }, [originalTitle])
+
+  const handleSearch = (evt) => {
+    setOriginalTitle(evt.target.value)
+  }
 
   const loadMovies = (page) => {
     setLoading(true)
@@ -57,12 +80,24 @@ const ListMovie = () => {
 
   return (
     <div>
-      <div className="mb-9">
-        <h1 className="font-semibold text-xl mb-2">List of Movies</h1>
-        <p className="font-light text-base">
-          This is a page that contains a collection of the best movies.
-        </p>
+      <div className="mb-9 flex justify-between items-center">
+        <div>
+          <h1 className="font-semibold text-xl mb-2">List of Movies</h1>
+          <p className="font-light text-base">
+            This is a page that contains a collection of the best movies.
+          </p>
+        </div>
+        <div>
+          <input
+            type="text"
+            value={originalTitle}
+            onChange={handleSearch}
+            placeholder="Search by Title"
+            className="block mx-4 p-2.5 text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+          />
+        </div>
       </div>
+
       <div>
         <MovieList
           data={dataMovies}

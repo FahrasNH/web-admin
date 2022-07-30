@@ -5,7 +5,7 @@ import { listSidebar } from '../../../constants/listSidebar'
 const Layout = ({ children }) => {
   return (
     <div className="flex">
-      <aside className="w-64 h-screen" aria-label="Sidebar">
+      <aside className="w-64 h-screen fixed" aria-label="Sidebar">
         <div className="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
           <ul className="space-y-2">
             {listSidebar.map((item, idx) => (
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
           </ul>
         </div>
       </aside>
-      <main className="overflow-x-hidden m-6 w-full">{children}</main>
+      <main className="overflow-x-hidden m-6 ml-64 w-full">{children}</main>
     </div>
   )
 }

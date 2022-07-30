@@ -1,0 +1,10 @@
+// Movie List
+export const MOVIE_REQUEST = 'MOVIE_REQUEST'
+export const MOVIE_SUCCESS = 'MOVIE_SUCCESS'
+export const MOVIE_FAILURE = 'MOVIE_FAILURE'
+export const MOVIE_DETAIL_SUCCESS = 'MOVIE_DETAIL_SUCCESS'
+
+// Genre List
+export const GENRE_REQUEST = 'GENRE_REQUEST'
+export const GENRE_SUCCESS = 'GENRE_SUCCESS'
+export const GENRE_FAILURE = 'GENRE_FAILURE'

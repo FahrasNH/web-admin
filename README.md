@@ -25,6 +25,7 @@
 
 <div id="about-the-project"></div>
 Projek ini di bangun dengan tujuan untuk memenuhi persyaratan test dari Qoin.
+[Web Admin Movie](https://web-admin-murex.vercel.app/)
 
 Web Admin adalah Panel Control yang dibangun menggunakan teknologi ReactJS dan ReduxJS.
 
